@@ -237,14 +237,14 @@ class NLPApp:
 
     def perform_detection(self):
 
-        client = nlpcloud.Client("python-langdetect", "YOUR_API_KEY", gpu=False)
+        client = nlpcloud.Client("python-langdetect", "5574227118327c2cd4100253034a2b8efacefd7b", gpu=False)
         text=self.language_input.get()
         response=client.langdetection(text)
         response_result=response["languages"][0]
         self.result_.configure(text=response_result)
 
     def entity_detection(self):
-        client = nlpcloud.Client("gpt-oss-120b", "YOUR_API_KEY", gpu=True)
+        client = nlpcloud.Client("gpt-oss-120b", "5574227118327c2cd4100253034a2b8efacefd7b", gpu=True)
         response = client.entities(
             self.para_input.get(),
             searched_entity=self.word_input.get()
@@ -265,7 +265,7 @@ class NLPApp:
         self.result_1.configure(text=pretty)
 
     def sentiment_detection(self):
-        client = nlpcloud.Client("gpt-oss-120b", "YOUR_API_KEY", gpu=True)
+        client = nlpcloud.Client("gpt-oss-120b", "5574227118327c2cd4100253034a2b8efacefd7b", gpu=True)
         response = client.sentiment(
             self.sentiment_input.get(),
             target="NLP Cloud"
