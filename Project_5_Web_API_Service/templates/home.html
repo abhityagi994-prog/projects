@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IPL</title>
+</head>
+<body>
+    <h1>Welcome to IPL World</h1>
+    <h3>Team Vs Team</h3><br>
+    <form action="teamvteam" method="get">
+        <label>Select Team 1</label>
+        <select name='team1'>
+            {% for item in team %}
+                <option>{{item}}</option>
+            {% endfor %}
+        </select><br><br>
+        <label>Select Team 2</label>
+        <select name='team2'>
+            {% for item in team%}
+                <option>{{item}}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit" value="Find Track Record">
+    </form>
+{% if result %}
+    {% for i in result %}
+        <p>{{ i }} : {{ result[i] }}</p>
+    {% endfor %}
+{% endif %}
+
+</body>
+</html>
